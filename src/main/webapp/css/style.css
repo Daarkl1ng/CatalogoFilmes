@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Limelight&display=swap');
+
+/* ==============================
+   TRADITIONAL THEATER
+   Crimson velvet, antique gold,
+   and jewel-tone accents
+   ============================== */
+
+:root {
+    --velvet-black: #10070b;
+    --burgundy-wall: #260912;
+    --deep-crimson: #651329;
+    --curtain-red: #8c1836;
+
+    --antique-gold: #d4af62;
+    --bright-gold: #f0d58b;
+    --muted-brass: #947342;
+
+    --ivory: #f5ebd9;
+    --muted-ivory: #cdbda9;
+
+    --emerald: #245544;
+    --deep-purple: #402448;
+    --theater-navy: #202d4c;
+
+    --danger-red: #a3283e;
+    --danger-hover: #c23b52;
+
+    --panel: rgba(39, 12, 22, 0.94);
+    --gold-border: rgba(212, 175, 98, 0.55);
+}
+
+/* ---------- Page foundation ---------- */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: clamp(20px, 4vw, 52px);
+
+    background:
+            radial-gradient(ellipse at top, #501322 0%, transparent 58%),
+            linear-gradient(135deg, var(--burgundy-wall), var(--velvet-black) 75%);
+
+    color: var(--ivory);
+
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+/* ---------- Theater-style headings ---------- */
+
+h1 {
+    margin: 0 auto 32px;
+    padding: 25px 12px;
+
+    color: var(--bright-gold);
+    font-family: 'Limelight', Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+
+    border-top: 2px solid var(--muted-brass);
+    border-bottom: 2px solid var(--muted-brass);
+
+    text-shadow:
+            0 2px 3px #000,
+            0 0 22px rgba(212, 175, 98, 0.18);
+}
+
+h2 {
+    margin-top: 18px;
+
+    color: var(--bright-gold);
+    font-family: 'Limelight', Georgia, serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+p {
+    color: var(--ivory);
+}
+
+/* ---------- Links ---------- */
+
+a {
+    color: var(--bright-gold);
+    text-decoration: none;
+    text-underline-offset: 4px;
+    transition: color 160ms ease, background-color 160ms ease;
+}
+
+a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Main catalog action: the gold marquee button */
+
+body > p > a[href*="/filmes/novo"] {
+    display: inline-block;
+    margin: 0 0 10px;
+    padding: 11px 19px;
+
+    background: linear-gradient(135deg, var(--bright-gold), var(--antique-gold));
+    color: var(--velvet-black);
+
+    border: 1px solid #f8e8bd;
+    border-radius: 3px;
+
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+body > p > a[href*="/filmes/novo"]:hover {
+    background: var(--ivory);
+    color: var(--deep-crimson);
+    text-decoration: none;
+}
+
+/* Actions in the film table */
+
+td a[href*="/filmes/detalhes"],
+td a[href*="/filmes/editar"] {
+    display: inline-block;
+    margin: 2px 0;
+    padding: 4px 7px;
+
+    border: 1px solid var(--gold-border);
+    border-radius: 3px;
+
+    font-size: 17px;
+    white-space: nowrap;
+}
+
+td a[href*="/filmes/detalhes"]:hover,
+td a[href*="/filmes/editar"]:hover {
+    background-color: var(--deep-crimson);
+    text-decoration: none;
+}
+
+/* ---------- Forms ---------- */
+
+form:not([action*="/filmes/excluir"]) {
+    width: min(100%, 820px);
+    margin: 26px auto;
+    padding: clamp(18px, 3vw, 30px);
+
+    background: var(--panel);
+    border: 1px solid var(--gold-border);
+    border-top: 3px solid var(--antique-gold);
+    border-radius: 4px;
+
+    box-shadow:
+            0 12px 32px rgba(0, 0, 0, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+/* Search form */
+
+form[action$="/filmes"] {
+    width: 100%;
+    margin: 24px 0;
+    padding: 18px 20px;
+
+    border-top: 1px solid var(--gold-border);
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 7px;
+
+    color: var(--bright-gold);
+    font-size: 19px;
+    font-weight: 700;
+}
+
+input,
+textarea {
+    max-width: 100%;
+    padding: 10px 12px;
+
+    background-color: #170910;
+    color: var(--ivory);
+
+    border: 1px solid var(--muted-brass);
+    border-radius: 3px;
+
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 19px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #ad9b89;
+    opacity: 1;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--bright-gold);
+    box-shadow: 0 0 0 2px rgba(212, 175, 98, 0.2);
+}
+
+input:required:invalid:focus {
+    border-color: var(--danger-hover);
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* ---------- Buttons ---------- */
+
+button {
+    padding: 9px 16px;
+
+    background: linear-gradient(135deg, var(--curtain-red), var(--deep-crimson));
+    color: var(--ivory);
+
+    border: 1px solid var(--antique-gold);
+    border-radius: 3px;
+
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+
+    cursor: pointer;
+    transition:
+            background-color 160ms ease,
+            color 160ms ease,
+            transform 160ms ease;
+}
+
+button:hover {
+    background: var(--antique-gold);
+    color: var(--velvet-black);
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--bright-gold);
+    outline-offset: 3px;
+}
+
+/* Exclusion is intentionally visually distinct */
+
+form[action*="/filmes/excluir"] {
+    display: inline-block;
+    margin: 4px 0;
+    padding: 0;
+
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+form[action*="/filmes/excluir"] button {
+    padding: 5px 10px;
+
+    background: var(--danger-red);
+    color: white;
+
+    border: 1px solid #d76b79;
+    font-size: 16px;
+}
+
+form[action*="/filmes/excluir"] button:hover {
+    background: var(--danger-hover);
+}
+
+/* ---------- Catalog table ---------- */
+
+table {
+    width: 100%;
+    margin-top: 28px;
+
+    background-color: rgba(25, 8, 15, 0.96);
+    border: 1px solid var(--muted-brass);
+    border-collapse: collapse;
+
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+}
+
+th,
+td {
+    padding: 13px 14px;
+
+    border: 1px solid rgba(212, 175, 98, 0.24);
+
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: linear-gradient(180deg, #6e1930, #45101f);
+    color: var(--bright-gold);
+
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+}
+
+td {
+    color: var(--ivory);
+    overflow-wrap: anywhere;
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(83, 20, 39, 0.28);
+}
+
+tbody tr:hover {
+    background-color: rgba(111, 29, 51, 0.44);
+}
+
+td:nth-child(6) {
+    min-width: 240px;
+}
+
+/* ---------- Details page ---------- */
+
+strong {
+    color: var(--bright-gold);
+    font-weight: 700;
+}
+
+/* ---------- Responsive layout ---------- */
+
+@media (max-width: 760px) {
+    body {
+        padding: 18px 12px;
+        font-size: 19px;
+    }
+
+    h1 {
+        letter-spacing: 1px;
+        padding: 20px 8px;
+    }
+
+    table {
+        display: block;
+        max-width: 100%;
+        overflow-x: auto;
+        white-space: normal;
+    }
+
+    th,
+    td {
+        padding: 10px;
+    }
+
+    form[action$="/filmes"] input {
+        width: 100%;
+        margin: 8px 0;
+    }
+}
+
+/* ---------- Text selection ---------- */
+
+::selection {
+    background: var(--antique-gold);
+    color: var(--velvet-black);
+}
