@@ -202,19 +202,19 @@ As capturas de tela a seguir demonstram as principais funcionalidades da aplica�
 
 **Figura 2 — Formulário de cadastro.** Demonstra os campos disponíveis para cadastrar um novo filme.
 
-![Figura 2 — Formulário de cadastro](evidencias/02-cadastro de filme.png)
+![Figura 2 — Formulário de cadastro](evidencias/02-cadastro.png)
 
 **Figura 3 — Detalhes de um filme.** Apresenta as informações de um filme selecionado, incluindo título, diretor, ano de lançamento, gênero e sinopse.
 
-![Figura 3 — Detalhes de um filme](evidencias/03-detalhes de um filme.png)
+![Figura 3 — Detalhes de um filme](evidencias/03-detalhes.png)
 
 **Figura 4 — Formulário de edição.** Demonstra o formulário preenchido com os dados existentes de um filme, permitindo sua alteração.
 
-![Figura 4 — Formulário de edição](evidencias/04-edicao%20de%20um%20filme.png)
+![Figura 4 — Formulário de edição](evidencias/04-edicao.png)
 
 **Figura 5 — Resultado da busca.** Demonstra a pesquisa por parte do título, apresentando o registro correspondente ao termo informado.
 
-![Figura 5 — Resultado da busca](evidencias/05-resultado da busca.png)
+![Figura 5 — Resultado da busca](evidencias/05-busca.png)
 
 ## 8. Considerações sobre segurança
 
