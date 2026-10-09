@@ -10,8 +10,25 @@ import org.example.database.FilmeDAO;
 import org.example.model.Filme;
 import java.sql.SQLException;
 
+/**
+ * Controla o cadastro de novos filmes no catálogo.
+ *
+ * Disponibiliza o formulário de cadastro e processa os dados enviados
+ * pelo usuário, validando as entradas antes de solicitar a inserção
+ * do registro ao FilmeDAO.
+ */
+
 @WebServlet("/filmes/novo")
 public class CadastroFilmeServlet extends HttpServlet {
+
+    /**
+     * Exibe o formulário de cadastro de filmes.
+     *
+     * @param request requisição HTTP recebida
+     * @param response resposta HTTP a ser enviada
+     * @throws ServletException se ocorrer uma falha no processamento do Servlet
+     * @throws IOException se ocorrer uma falha de entrada ou saída
+     */
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -19,6 +36,20 @@ public class CadastroFilmeServlet extends HttpServlet {
 
         request.getRequestDispatcher("/cadastro.jsp").forward(request, response);
     }
+
+    /**
+     * Valida os dados enviados pelo formulário e solicita o cadastro do filme.
+     *
+     * Verifica os campos obrigatórios, os limites de tamanho e o ano
+     * de lançamento. Se a inserção for concluída, redireciona ao catálogo;
+     * caso contrário, registra a falha SQL, quando aplicável, e retorna
+     * uma resposta HTTP de erro.
+     *
+     * @param request requisição HTTP contendo os dados do formulário
+     * @param response resposta HTTP a ser enviada
+     * @throws ServletException se ocorrer uma falha no processamento do Servlet
+     * @throws IOException se ocorrer uma falha de entrada ou saída
+     */
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

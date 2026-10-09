@@ -1,0 +1,64 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+
+package "org.example.model" {
+    class Filme {
+        - id: int
+        - titulo: String
+        - diretor: String
+        - anoLancamento: int
+        - genero: String
+        - sinopse: String
+
+        + Filme(...)
+        + getId(): int
+        + getTitulo(): String
+        + getDiretor(): String
+        + getAnoLancamento(): int
+        + getGenero(): String
+        + getSinopse(): String
+        + setTitulo(titulo: String): void
+        + setDiretor(diretor: String): void
+        + setAnoLancamento(ano: int): void
+        + setGenero(genero: String): void
+        + setSinopse(sinopse: String): void
+    }
+}
+
+package "org.example.database" {
+    class Conexao {
+        - URL: String {static}
+        - USUARIO: String {static}
+        - SENHA: String {static}
+        + conectar(): Connection {static}
+    }
+
+    class FilmeDAO {
+        + listarFilmes(): ArrayList<Filme>
+        + buscarPorId(id: int): Filme
+        + adicionarFilme(filme: Filme): boolean
+        + atualizarFilme(filme: Filme): boolean
+        + excluirFilme(id: int): boolean
+        + buscar(termo: String): ArrayList<Filme>
+    }
+}
+
+package "org.example.servlet" {
+    class FilmeServlet
+    class CadastroFilmeServlet
+    class DetalhesFilmeServlet
+    class EditarFilmeServlet
+    class ExcluirFilmeServlet
+}
+
+FilmeDAO ..> Filme : creates and retrieves
+FilmeDAO ..> Conexao : opens connection
+
+FilmeServlet ..> FilmeDAO : lists and searches
+CadastroFilmeServlet ..> FilmeDAO : inserts
+DetalhesFilmeServlet ..> FilmeDAO : finds by ID
+EditarFilmeServlet ..> FilmeDAO : finds and updates
+ExcluirFilmeServlet ..> FilmeDAO : deletes
+
+@enduml

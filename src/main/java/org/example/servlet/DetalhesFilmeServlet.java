@@ -10,8 +10,28 @@ import org.example.model.Filme;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Controla a visualização dos detalhes de um filme.
+ *
+ * Recebe o identificador pela requisição HTTP, consulta o filme
+ * por meio do FilmeDAO e encaminha seus dados para detalhes.jsp.
+ * Trata identificadores inválidos, filmes inexistentes e falhas SQL.
+ */
+
 @WebServlet("/filmes/detalhes")
 public class DetalhesFilmeServlet extends HttpServlet {
+
+    /**
+     * Processa a consulta dos detalhes de um filme.
+     *
+     * Valida o identificador recebido, busca o registro no banco
+     * e encaminha o objeto Filme para a página de detalhes.
+     *
+     * @param request requisição HTTP contendo o identificador do filme
+     * @param response resposta HTTP a ser enviada
+     * @throws ServletException se ocorrer uma falha no processamento do Servlet
+     * @throws IOException se ocorrer uma falha de entrada ou saída
+     */
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

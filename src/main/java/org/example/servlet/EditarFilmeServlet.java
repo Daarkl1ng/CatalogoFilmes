@@ -10,8 +10,27 @@ import org.example.model.Filme;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Controla a consulta e a atualização dos dados de filmes.
+ *
+ * Disponibiliza o formulário de edição preenchido com os dados
+ * existentes e processa as alterações enviadas pelo usuário.
+ */
+
 @WebServlet("/filmes/editar")
 public class EditarFilmeServlet extends HttpServlet {
+
+    /**
+     * Carrega os dados de um filme para o formulário de edição.
+     *
+     * Obtém o identificador da requisição, consulta o registro no banco
+     * e encaminha o objeto Filme para editar.jsp.
+     *
+     * @param request requisição HTTP contendo o identificador do filme
+     * @param response resposta HTTP a ser enviada
+     * @throws ServletException se ocorrer uma falha no processamento do Servlet
+     * @throws IOException se ocorrer uma falha de entrada ou saída
+     */
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -66,6 +85,20 @@ public class EditarFilmeServlet extends HttpServlet {
 
         request.getRequestDispatcher("/editar.jsp").forward(request, response);
     }
+
+    /**
+     * Valida e salva as alterações de um filme existente.
+     *
+     * Verifica os campos obrigatórios, os limites de tamanho, o identificador
+     * e o ano de lançamento. Em seguida, solicita a atualização ao FilmeDAO.
+     * Quando a operação é concluída, redireciona ao catálogo. Se o filme não
+     * existir ou ocorrer uma falha SQL, envia a resposta HTTP correspondente.
+     *
+     * @param request requisição HTTP contendo os dados editados
+     * @param response resposta HTTP a ser enviada
+     * @throws ServletException se ocorrer uma falha no processamento do Servlet
+     * @throws IOException se ocorrer uma falha de entrada ou saída
+     */
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

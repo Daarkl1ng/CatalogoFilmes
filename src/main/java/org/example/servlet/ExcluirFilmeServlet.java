@@ -9,8 +9,30 @@ import org.example.database.FilmeDAO;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Controla a exclusão de filmes do catálogo.
+ *
+ * Recebe o identificador do filme por uma requisição HTTP POST,
+ * valida o valor informado e solicita a exclusão ao FilmeDAO.
+ * Trata identificadores inválidos, filmes inexistentes e falhas SQL.
+ */
+
 @WebServlet("/filmes/excluir")
 public class ExcluirFilmeServlet extends HttpServlet {
+
+    /**
+     * Processa uma solicitação de exclusão de filme.
+     *
+     * Valida o identificador recebido e solicita ao FilmeDAO a remoção
+     * do registro correspondente. Em caso de sucesso, redireciona ao
+     * catálogo; se o filme não existir ou ocorrer uma falha SQL,
+     * retorna a resposta HTTP apropriada.
+     *
+     * @param request requisição HTTP contendo o identificador do filme
+     * @param response resposta HTTP a ser enviada
+     * @throws ServletException se ocorrer uma falha no processamento do Servlet
+     * @throws IOException se ocorrer uma falha de entrada ou saída
+     */
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
